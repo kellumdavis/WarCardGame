@@ -1,23 +1,31 @@
-// Grabbing About the Game button
-const openBtn = document.getElementById('openModal');
-
-// Grabbing modal element
+//Grabbing Elements
+const open = document.getElementById('openModal');
 const modal = document.getElementById('modal')
-
-// Grabbing close button
 const close = document.getElementById('close')
 
-// Function to change modal display to 'block'
+//Functions
 const openModal = () => {
-    modal.style.display = 'block';
-  }
-// Event handler to close the modal
+  modal.style.display = 'block';
+}
+
 const closeModal = () => {
-    modal.style.display = 'none'
+  modal.style.display = 'none'
+}
+
+//Event Listeners
+// open.addEventListener('click', openModal)
+
+// close.addEventListener('click', closeModal)
+
+//create initial 52 card deck
+let suits = ['H','C','D','S']
+let ranks = ['2','3','4','5','6','7','8','9','T','J','Q','K','A']
+let deck = [];
+
+for(i = 0;i < suits.length;i++) {
+  for(j = 0; j < ranks.length; j++){
+      let card = suits[i] +  ranks[j]
+      deck.push(card)
   }
-
-openBtn.addEventListener('click', openModal)
-
-
-  //Add event listener to Close button
-close.addEventListener('click', closeModal)
+}
+console.log(deck)
