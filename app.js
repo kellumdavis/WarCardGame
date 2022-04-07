@@ -18,9 +18,11 @@ const closeModal = () => {
 // close.addEventListener('click', closeModal)
 
 //create initial 52 card deck
-let suits = ['H','C','D','S']
-let ranks = ['2','3','4','5','6','7','8','9','T','J','Q','K','A']
+let suits = ["♠", "♣", "♥", "♦"];
+let ranks = ['2','3','4','5','6','7','8','9','T','J','Q','K','A'];
 let deck = [];
+let playerOneDeck = [];
+let playerTwoDeck = [];
 
 for(i = 0;i < suits.length;i++) {
   for(j = 0; j < ranks.length; j++){
@@ -29,3 +31,35 @@ for(i = 0;i < suits.length;i++) {
   }
 }
 console.log(deck)
+
+
+// https://bost.ocks.org/mike/shuffle/ shuffles the 52 card deck
+function shuffle(deck) {
+    var m = deck.length, t, i;
+    
+    // While there remain elements to shuffle…
+    while (m) {
+  
+      // Pick a remaining element…
+      i = Math.floor(Math.random() * m--);
+  
+      // And swap it with the current element.
+      t = deck[m];
+      deck[m] = deck[i];
+      deck[i] = t;
+    }
+    return deck;
+  }
+  console.log(shuffle(deck))
+  console.log(playerOneDeck)
+
+  function splitDeck(){
+      for(i = 0;i < deck.length; i++){
+          let randomNum = Math.floor(Math.random() * deck.length)
+          deck.splice(randomNum)
+          playerOneDeck.push(deck.splice(randomNum))
+      } return playerOneDeck;
+  }
+  console.log(splitDeck())
+
+  
