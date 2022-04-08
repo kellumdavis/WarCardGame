@@ -1,8 +1,11 @@
+
+
 //Grabbing Elements
 const open = document.getElementById('openModal');
 const modal = document.getElementById('modal')
 const close = document.getElementById('close')
-
+const cardCountOne = document.querySelector('.playerOneCardCount')
+const cardCountTwo = document.querySelector('.playerTwoCardCount')
 //Functions
 const openModal = () => {
   modal.style.display = 'block';
@@ -17,6 +20,13 @@ const closeModal = () => {
 
 // close.addEventListener('click', closeModal)
 
+// startButton.addEventListener('click', (event) => {
+//     event.preventDefault()
+//     shuffle(deck);
+//     splitDeck();
+//     window.location = "index.html";
+// })
+
 //create initial 52 card deck
 let suits = ["♠", "♣", "♥", "♦"];
 let ranks = ['2','3','4','5','6','7','8','9','T','J','Q','K','A'];
@@ -30,7 +40,9 @@ for(i = 0;i < suits.length;i++) {
       deck.push(card)
   }
 }
-console.log(deck)
+shuffle(deck);
+splitDeck();
+// console.log(deck)
 
 
 // https://bost.ocks.org/mike/shuffle/ shuffles the 52 card deck
@@ -50,16 +62,16 @@ function shuffle(deck) {
     }
     return deck;
   }
-  console.log(shuffle(deck))
-  console.log(playerOneDeck)
-
+//   console.log(shuffle(deck))
+  
+//Splits The full Deck in half for player1 and player2
   function splitDeck(){
-      for(i = 0;i < deck.length; i++){
-          let randomNum = Math.floor(Math.random() * deck.length)
-          deck.splice(randomNum)
-          playerOneDeck.push(deck.splice(randomNum))
-      } return playerOneDeck;
+    const half = Math.ceil(deck.length / 2);
+    playerOneDeck = deck.slice(0, half)
+    cardCountOne.innerHTML += playerOneDeck.length
+    console.log(playerOneDeck)
+    playerTwoDeck = deck.slice(-half)
+    cardCountTwo.innerHTML += playerTwoDeck.length
+    console.log(playerTwoDeck)
   }
-  console.log(splitDeck())
-
   
