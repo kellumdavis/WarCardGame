@@ -1,5 +1,5 @@
 let drawnCard1, drawnCard2;
-
+let cardCount1, cardCount2;
 //Grabbing Elements
 const open = document.getElementById('openModal');
 const modal = document.getElementById('modal')
@@ -25,17 +25,24 @@ const closeModal = () => {
 // close.addEventListener('click', closeModal)
 
 drawButtonOne.addEventListener('click', () => {
+    
    drawnCard1 = playerOneDeck.pop()
+   drawnCard2 = playerTwoDeck.pop()
    drawCard1.innerHTML = drawnCard1.rank + drawnCard1.suit
-   checkWinner()
-   cardCountOne.innerHTML += playerOneDeck.length
+   drawCard2.innerHTML = drawnCard2.rank + drawnCard2.suit
+   checkMatch()
+   cardCountOne.innerHTML = `Card Count:${playerOneDeck.length + playerOneDiscard.length}`
+   cardCountTwo.innerHTML = `Card Count:${playerTwoDeck.length + playerTwoDiscard.length}`
+   checkWinner();
 } )
-drawButtonTwo.addEventListener('click', () => {
-    drawnCard2 = playerTwoDeck.pop()
-    drawCard2.innerHTML = drawnCard2.rank + drawnCard2.suit
-    checkWinner()
-     
- })
+// drawButtonTwo.addEventListener('click', () => {
+//     drawCard2.innerHTML = ''
+//     drawnCard2 = playerTwoDeck.pop()
+//     drawCard2.innerHTML = drawnCard2.rank + drawnCard2.suit
+//     checkWinner()
+//     cardCountTwo.innerHTML = `Card Count:${playerTwoDeck.length}`
+    
+//  })
 
 //create initial 52 card deck
 let suits = ["♠", "♣", "♥", "♦"];
@@ -58,7 +65,8 @@ let value = {
 let deck = [];
 let playerOneDeck = [];
 let playerTwoDeck = [];
-
+let playerOneDiscard = [];
+let playerTwoDiscard = []; 
 for(i = 0;i < suits.length;i++) {
   for(j = 0; j < ranks.length; j++){
       let card = {
@@ -105,16 +113,31 @@ function shuffle(deck) {
     cardCountTwo.innerHTML += playerTwoDeck.length
     console.log(playerTwoDeck)
   }
-  
-function checkWinner(){
+  //Checks winners for each matchup
+function checkMatch(){
     if(drawnCard1.value > drawnCard2.value){
         console.log('player 1 wins')
-        playerOneDeck.push(drawnCard1,drawnCard2)
+        playerOneDiscard.unshift(drawnCard1,drawnCard2)
         console.log(playerOneDeck.length)
     }else if(drawnCard1.value < drawnCard2.value){
+        playerTwoDiscard.unshift(drawnCard1,drawnCard2)
         console.log('player 2 wins')
+        console.log(playerTwoDeck.length)
     }else{
         console.log('Draw')
     }
 }
- 
+ //Checks for the overall winner
+function checkWinner(){
+    let playerOneTotal = playerOneDeck.length + playerOneDiscard.length;
+    let playerTwoTotal = playerTwoDeck.length + playerTwoDiscard.length;
+    if(playerOneDeck.length == 0 && playerOneTotal < playerTwoTotal){
+        console.log('game over player 2 wins!')
+    }else if(playerOneDeck.length == 0 && playerOneTotal > playerTwoTotal){
+        console.log('game over player 1 wins!')
+    }else if(playerOneDeck.length == 0 && playerOneTotal == playerTwoTotal){
+        console.log('Game over its a draw!')
+    }else{
+        return
+    }
+}
