@@ -96,7 +96,23 @@ body{
     border: 3px solid black;
     
 }
+.drawCard1{
+    transition: .5s all ease;
+}
+.drawCard2{
+    transition: .5s all ease;
+}
 .hidden{
     display: none;
     
+}
+.drawButtonOne img{
+    width: 75px;
+}
+
+.drawButtonOne{
+    background-color: darkgray;
+}
+.drawButtonOne:hover{
+    background-color: #BBBAC6;
 }

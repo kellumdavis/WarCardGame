@@ -38,6 +38,8 @@ drawButtonOne.addEventListener('click', () => {
    drawnCard2 = playerTwoDeck.pop()
    drawCard1.innerHTML = drawnCard1.rank + drawnCard1.suit
    drawCard2.innerHTML = drawnCard2.rank + drawnCard2.suit
+   
+   
    checkMatch()
    cardCountOne.innerHTML = `Card Count:${playerOneDeck.length + playerOneDiscard.length}`
    cardCountTwo.innerHTML = `Card Count:${playerTwoDeck.length + playerTwoDiscard.length}`
@@ -47,6 +49,8 @@ drawButtonOne.addEventListener('click', () => {
 
 //resets gameboard after game is over
 resetButton.addEventListener('click', () => {
+    drawCard1.style.boxShadow = null
+    drawCard2.style.boxShadow = null
     playerOneDiscard = [];
     playerTwoDiscard = [];
     drawCard1.innerHTML = ``
@@ -61,7 +65,7 @@ resetButton.addEventListener('click', () => {
 
 //create initial 52 card deck
 let suits = ["♠", "♣", "♥", "♦"];
-let ranks = ['2','3','4','5','6','7','8','9','T','J','Q','K','A'];
+let ranks = ['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
 let value = {
     2: 2,
     3: 3,
@@ -71,7 +75,7 @@ let value = {
     7: 7,
     8: 8,
     9: 9,
-    T: 10,
+    10: 10,
     J: 11,
     Q: 12,
     K: 13,
