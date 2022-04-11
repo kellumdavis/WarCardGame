@@ -10,6 +10,10 @@ const drawButtonOne = document.querySelector('.drawButtonOne')
 const drawButtonTwo = document.querySelector('.drawButtonTwo')
 const drawCard1 = document.querySelector('.drawCard1')
 const drawCard2 = document.querySelector('.drawCard2')
+const winnerText = document.querySelector('.winnerText')
+const gameOver = document.querySelector('.gameOver')
+const displayWinner = document.querySelector('.displayWinner')
+const resetButton = document.querySelector('.reset')
 //Functions
 const openModal = () => {
   modal.style.display = 'block';
@@ -19,7 +23,7 @@ const closeModal = () => {
   modal.style.display = 'none'
 }
 
-//Event Listeners
+// Event Listeners
 // open.addEventListener('click', openModal)
 
 // close.addEventListener('click', closeModal)
@@ -34,15 +38,22 @@ drawButtonOne.addEventListener('click', () => {
    cardCountOne.innerHTML = `Card Count:${playerOneDeck.length + playerOneDiscard.length}`
    cardCountTwo.innerHTML = `Card Count:${playerTwoDeck.length + playerTwoDiscard.length}`
    checkWinner();
+   
 } )
-// drawButtonTwo.addEventListener('click', () => {
-//     drawCard2.innerHTML = ''
-//     drawnCard2 = playerTwoDeck.pop()
-//     drawCard2.innerHTML = drawnCard2.rank + drawnCard2.suit
-//     checkWinner()
-//     cardCountTwo.innerHTML = `Card Count:${playerTwoDeck.length}`
-    
-//  })
+
+//resets gameboard after game is over
+resetButton.addEventListener('click', () => {
+    playerOneDiscard = [];
+    playerTwoDiscard = [];
+    drawCard1.innerHTML = ``
+    drawCard2.innerHTML = ``
+    winnerText.innerHTML = ``
+    cardCountOne.innerHTML = `Card Count:`
+    cardCountTwo.innerHTML = `Card Count:`
+    shuffle(deck);
+    splitDeck();
+    gameOver.style.display = 'none'
+ })
 
 //create initial 52 card deck
 let suits = ["♠", "♣", "♥", "♦"];
@@ -116,10 +127,12 @@ function shuffle(deck) {
   //Checks winners for each matchup
 function checkMatch(){
     if(drawnCard1.value > drawnCard2.value){
+        winnerText.innerHTML = `Player 1 Wins the Match`
         console.log('player 1 wins')
         playerOneDiscard.unshift(drawnCard1,drawnCard2)
         console.log(playerOneDeck.length)
     }else if(drawnCard1.value < drawnCard2.value){
+        winnerText.innerHTML = `Computer Wins the Match`
         playerTwoDiscard.unshift(drawnCard1,drawnCard2)
         console.log('player 2 wins')
         console.log(playerTwoDeck.length)
@@ -131,13 +144,20 @@ function checkMatch(){
 function checkWinner(){
     let playerOneTotal = playerOneDeck.length + playerOneDiscard.length;
     let playerTwoTotal = playerTwoDeck.length + playerTwoDiscard.length;
-    if(playerOneDeck.length == 0 && playerOneTotal < playerTwoTotal){
-        console.log('game over player 2 wins!')
-    }else if(playerOneDeck.length == 0 && playerOneTotal > playerTwoTotal){
-        console.log('game over player 1 wins!')
-    }else if(playerOneDeck.length == 0 && playerOneTotal == playerTwoTotal){
+    if(playerOneDeck.length === 0 && playerOneTotal < playerTwoTotal){
+        console.log('game over player 2 wins')
+        gameOver.style.display = 'block';
+        displayWinner.innerHTML = `Game Over The Computer Wins`
+    }else if(playerOneDeck.length === 0 && playerOneTotal > playerTwoTotal){
+        console.log('game over player 1 wins')
+        gameOver.style.display = 'block';
+        displayWinner.innerHTML = `Game Over Player 1 Wins`
+    }else if(playerOneDeck.length === 0 && playerOneTotal == playerTwoTotal){
         console.log('Game over its a draw!')
+        gameOver.style.display = 'block';
+        displayWinner.innerHTML = `Game Over its a draw`
     }else{
         return
     }
 }
+
