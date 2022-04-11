@@ -10,10 +10,13 @@ const drawButtonOne = document.querySelector('.drawButtonOne')
 const drawButtonTwo = document.querySelector('.drawButtonTwo')
 const drawCard1 = document.querySelector('.drawCard1')
 const drawCard2 = document.querySelector('.drawCard2')
+const card = document.querySelector('.card')
 const winnerText = document.querySelector('.winnerText')
 const gameOver = document.querySelector('.gameOver')
 const displayWinner = document.querySelector('.displayWinner')
 const resetButton = document.querySelector('.reset')
+const roundsWon = document.querySelector('.roundsWon')
+const compRounds = document.querySelector('.compRoundsWon')
 //Functions
 const openModal = () => {
   modal.style.display = 'block';
@@ -29,7 +32,6 @@ const closeModal = () => {
 // close.addEventListener('click', closeModal)
 
 drawButtonOne.addEventListener('click', () => {
-    
    drawnCard1 = playerOneDeck.pop()
    drawnCard2 = playerTwoDeck.pop()
    drawCard1.innerHTML = drawnCard1.rank + drawnCard1.suit
@@ -78,6 +80,8 @@ let playerOneDeck = [];
 let playerTwoDeck = [];
 let playerOneDiscard = [];
 let playerTwoDiscard = []; 
+let playerRoundsWon = 0;
+let compRoundsWon = 0;
 for(i = 0;i < suits.length;i++) {
   for(j = 0; j < ranks.length; j++){
       let card = {
@@ -146,10 +150,14 @@ function checkWinner(){
     let playerTwoTotal = playerTwoDeck.length + playerTwoDiscard.length;
     if(playerOneDeck.length === 0 && playerOneTotal < playerTwoTotal){
         console.log('game over player 2 wins')
+        compRoundsWon++
+        compRounds.innerHTML = `Rounds Won:${compRoundsWon}`
         gameOver.style.display = 'block';
         displayWinner.innerHTML = `Game Over The Computer Wins`
     }else if(playerOneDeck.length === 0 && playerOneTotal > playerTwoTotal){
         console.log('game over player 1 wins')
+        playerRoundsWon++
+        roundsWon.innerHTML = `Rounds Won:${playerRoundsWon}`
         gameOver.style.display = 'block';
         displayWinner.innerHTML = `Game Over Player 1 Wins`
     }else if(playerOneDeck.length === 0 && playerOneTotal == playerTwoTotal){
