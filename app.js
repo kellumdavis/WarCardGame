@@ -20,6 +20,7 @@ const resetButton = document.querySelector('.reset')
 const roundsWon = document.querySelector('.roundsWon')
 const compRounds = document.querySelector('.compRoundsWon')
 const mySound = document.getElementById("sound");
+const ribbon2 = document.querySelector('.ribbon2')
 //Functions
 const openModal = () => {
   modal.style.display = 'block';
@@ -105,7 +106,7 @@ for(i = 0;i < suits.length;i++) {
 }
 shuffle(deck);
 splitDeck();
-
+bannerMove();
 
 // console.log(deck)
 
@@ -212,4 +213,13 @@ function startanimation() {
 
   } );
 
+}
+
+function bannerMove(){
+  ribbon2.style.animationName = 'bannermove';
+  ribbon2.addEventListener( "animationend",  function() {
+
+    ribbon2.style.top = '0px'
+    ribbon2.style.paddingTop = '50px';
+    } );
 }
