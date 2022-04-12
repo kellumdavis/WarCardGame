@@ -89,7 +89,7 @@ body{
 .card{
     height: 200px;
     width: 125px;
-    background-color: aquamarine;
+    background-color: #8EA0B8;
     border-radius: 5%;
     text-align: center;
     font-size: 25px;
@@ -101,6 +101,7 @@ body{
 }
 .drawCard2{
     transition: .5s all ease;
+    background-color:#f13f4a;
 }
 .hidden{
     display: none;
@@ -121,11 +122,19 @@ body{
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     padding: 25px;
+    background-color:#8EA0B8;
+
+}
+.playerOneCharacter{
+    width: 250px;
 }
 .playerTwo{
         border: 5px solid black;
         box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
         transition: 0.3s;
         padding: 25px;
-    
+        background-color: #f13f4a;
+}
+.playerTwoCharacter{
+    width :250px;
 }
