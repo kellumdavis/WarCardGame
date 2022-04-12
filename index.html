@@ -4,55 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="main.css">
     <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Oswald&display=swap" rel="stylesheet">
-    
+    <title>Document</title>
 </head>
 <body>
-    <!-- <img class ="castle"src="https://www.pinclipart.com/picdir/big/0-7452_cliparts-medieval-manor-fairy-tale-castle-clip-art.png" alt=""> -->
-     <div class="hills">
+    <div class="hills">
         
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
             
             <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" class="shape-fill"></path>
         </svg>
     </div>
-    <img class ="castle"src="http://clipart-library.com/img1/1444360.png" alt="">
-   
-    <div class="gameboard">
-        
-        <section class="playerOne">
-            <img class="playerOneCharacter" src="https://img.freepik.com/free-vector/medieval-peasant-male-character-wear-fabric-clothes-holding-fork-isolated-white-background-historical-fairy-tale-actor-personage-middle-ages-ancient-man-cartoon-vector-illustration_1016-9853.jpg" alt="">
-            <h2>Player 1</h2>
-            <p class="roundsWon">Rounds Won:0</p>
-            <p class="playerOneCardCount">Card Count:</p>
-            
-        </section>
-        
-            <div class="drawCard1 card "></div>
-            <button class="drawButtonOne"><img src="https://cdn-icons-png.flaticon.com/512/1065/1065467.png" alt=""></button>
-            <div class="drawCard2 card "></div>
-        <section class="playerTwo ">
-            <img class="playerTwoCharacter" src="https://img.freepik.com/free-vector/medieval-knight-heraldic-character-wearing-armor-sword-brave-warrior-crusader-isolated-white-background_1016-9857.jpg?w=2000" alt="">
-            <h2>Computer</h2>
-            <p class="compRoundsWon">Rounds Won:0</p>
-            <p class="playerTwoCardCount">Card Count:</p>
-            
-        </section>
-        
-    </div>
-    
-    <section id="matchText">
-        <h3 class="winnerText"></h3>
-    </section>
-    <div class="gameOver">
-        <div class ="gameOverText">
-            <p class ="displayWinner"></p>
-            <button class="reset">Reset</button>
+    <button id="openModal">How to Play</button>
+    <div id="modal">
+        <div id="modal-textbox">
+        <a id="close" href="#">Close</a>
+        <h1>How to play War</h1>
+        <p>War is a played with two players and a standard 52 playing card deck. In War, cards are ranked Aces high and 2s low. The objective of the game is to win all of the cards in the deck.</p>
+        <p>At the game's start the deck is divided evenly between the two players.Both players place the top card of their deck onto the center of the table. The player whose card is higher in value takes both cards and places them in a separate pile next to their deck.</p>
+        <p>If players play cards of the same value, then there is a war. Players will place three of their cards faced down on the table and draw again. The winner of the war takes both pairs of played cards and the three cards faced down, winning five of their opponent’s cards.The player who wins all of the cards, wins the game.</p>
         </div>
     </div>
-     
+    <section class="start ">
+        <h1 class="ribbon">War</h1>
+        <a class="startButton" href="/game.html">Start</a>
+    </section>
+    
 </body>
 <script src="app.js"></script>
 </html>
