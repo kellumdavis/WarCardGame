@@ -19,9 +19,10 @@ body{
 	overflow: auto;
 	/*If overflow is clipped, a scroll-bar should be added to see the rest of the content*/
     display: none;
+    z-index: 2;
 }
 #modal-textbox {
-	background-color: white;
+	background-color: tan;
 	height: 350px;
 	width: 550px;
 	border-radius: 2px;
@@ -34,6 +35,17 @@ body{
     border:5px solid black;
     
 }
+#openModal{
+    position: absolute;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    width: 100px;
+    top: 550px;
+    z-index:1;
+
+}
 .ribbon {
     text-align:center;
     display:block;
@@ -44,6 +56,7 @@ body{
     font-size: 50px;
     /* top:  50px; */
     padding-top: 100px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
 }
 .ribbon:after {
     content:"";
@@ -74,6 +87,7 @@ body{
     top:  300px;
     padding-top: 100px;
     margin: auto;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
     animation-duration: 3s;
 }
 .ribbon2:after {
@@ -136,7 +150,7 @@ body{
     display: none;
 }
 .gameOverText{
-    background-color: white;
+    background-color: tan;
 	height: 350px;
 	width: 550px;
 	border-radius: 2px;
