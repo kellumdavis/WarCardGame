@@ -4,6 +4,8 @@ body{
     margin: 0;
     border: solid black 10px;
 }
+
+
 /* https://git.generalassemb.ly/carlos-godoy720/modals */
 #modal {
 	background-color: rgba(0,0,0,0.4);
@@ -97,11 +99,16 @@ body{
     
 }
 .drawCard1{
+    
     transition: .5s all ease;
+    animation-name: null;
+    animation-duration: .5s;
 }
 .drawCard2{
     transition: .5s all ease;
     background-color:#f13f4a;
+    animation-name: null;
+    animation-duration: .5s;
 }
 .hidden{
     display: none;
@@ -138,3 +145,33 @@ body{
 .playerTwoCharacter{
     width :250px;
 }
+
+@keyframes playermove {
+    0% { 
+       transform: translateX();
+     }
+  
+    50% {
+       transform: translateX(50px);
+     }
+  
+    100% {
+        transform: translateX();
+     }
+  
+  }
+
+  @keyframes compmove {
+    0% { 
+       transform: translateX();
+     }
+  
+    50% {
+       transform: translateX(-50px);
+     }
+  
+    100% {
+        transform: translateX();
+     }
+  
+  }

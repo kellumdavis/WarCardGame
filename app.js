@@ -38,6 +38,7 @@ drawButtonOne.addEventListener('click', () => {
   
    drawCard1.style.boxShadow = null
    drawCard2.style.boxShadow = null
+   startanimation();
    drawnCard1 = playerOneDeck.pop()
    drawnCard2 = playerTwoDeck.pop()
    drawCard1.innerHTML = drawnCard1.rank + drawnCard1.suit
@@ -196,3 +197,19 @@ function checkWinner(){
 // }
 // // war()
 // console.log(playerOneDeck)
+
+
+//function for card movement
+function startanimation() {
+
+  drawCard1.style.animationName = 'playermove';
+  drawCard2.style.animationName ='compmove';
+
+  drawCard1.addEventListener( "animationend",  function() {
+
+  drawCard1.style.animationName = null;
+  drawCard2.style.animationName = null;    
+
+  } );
+
+}
