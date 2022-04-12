@@ -1,5 +1,7 @@
 let drawnCard1, drawnCard2;
 let cardCount1, cardCount2;
+let warCard1, warCard2;
+let warDeck1, warDeck2;
 //Grabbing Elements
 const open = document.getElementById('openModal');
 const modal = document.getElementById('modal')
@@ -17,6 +19,7 @@ const displayWinner = document.querySelector('.displayWinner')
 const resetButton = document.querySelector('.reset')
 const roundsWon = document.querySelector('.roundsWon')
 const compRounds = document.querySelector('.compRoundsWon')
+const mySound = document.getElementById("sound");
 //Functions
 const openModal = () => {
   modal.style.display = 'block';
@@ -32,6 +35,7 @@ const closeModal = () => {
 // close.addEventListener('click', closeModal)
 
 drawButtonOne.addEventListener('click', () => {
+  
    drawCard1.style.boxShadow = null
    drawCard2.style.boxShadow = null
    drawnCard1 = playerOneDeck.pop()
@@ -150,6 +154,8 @@ function checkMatch(){
         console.log(playerTwoDeck.length)
     }else{
         console.log('Draw')
+        playerOneDiscard.unshift(drawnCard1)
+        playerTwoDiscard.unshift(drawnCard2)
     }
 }
  //Checks for the overall winner
@@ -177,3 +183,16 @@ function checkWinner(){
     }
 }
 
+// function war(){
+//  let warDeck1 = playerOneDeck.splice(-4);
+//  let warDeck2 = playerTwoDeck.splice(-4);
+//  let warCard1 = warDeck1.pop()
+//  let warCard2 = warDeck2.pop()
+//  if(warCard1.value > warCard2.value){
+//    playerOneDiscard.unshift(warDeck1, warDeck2)
+//  }else if(warCard1.value < warCard2.value){
+//   playerTwoDiscard.unshift(warDeck1, warDeck2)
+//  }
+// }
+// // war()
+// console.log(playerOneDeck)

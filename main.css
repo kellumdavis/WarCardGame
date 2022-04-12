@@ -116,3 +116,16 @@ body{
 .drawButtonOne:hover{
     background-color: #BBBAC6;
 }
+.playerOne{
+    border: 5px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding: 25px;
+}
+.playerTwo{
+        border: 5px solid black;
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        transition: 0.3s;
+        padding: 25px;
+    
+}
