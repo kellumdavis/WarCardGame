@@ -1,8 +1,8 @@
 body{
-    background: gray;
+    background: #348C31;
     font-family: 'MedievalSharp', cursive;
     margin: 0;
-    border: solid black 10px;
+    
 }
 
 
@@ -58,8 +58,10 @@ body{
     justify-content: space-between;
     align-items: center;
     height: 100vh;
-    
+    position: relative;
+    z-index: 1;
     padding: 50px;
+    border: solid black 10px;
 }
 .gameOver{
     background-color: rgba(0,0,0,0.4);
@@ -145,6 +147,35 @@ body{
 .playerTwoCharacter{
     width :250px;
 }
+.hills {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+    
+}
+
+.hills svg {
+    position: relative;
+    display: block;
+    width: calc(171% + 1.3px);
+    height: 418px;
+    
+}
+
+.hills .shape-fill {
+    fill: #50C2E3;
+}
+/* .castle{
+    position:absolute;
+    z-index:3;
+    width:15em;
+    left: 75em;
+    top: 50px;
+} */
 
 @keyframes playermove {
     0% { 

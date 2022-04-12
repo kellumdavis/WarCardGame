@@ -143,13 +143,13 @@ function shuffle(deck) {
 function checkMatch(){
     if(drawnCard1.value > drawnCard2.value){
         winnerText.innerHTML = `Player 1 Wins the Match`
-       drawCard1.style.boxShadow = '5px 5px 25px yellow'
+       drawCard1.style.boxShadow = '10px 10px 25px yellow'
         console.log('player 1 wins')
         playerOneDiscard.unshift(drawnCard1,drawnCard2)
         console.log(playerOneDeck.length)
     }else if(drawnCard1.value < drawnCard2.value){
         winnerText.innerHTML = `Computer Wins the Match`
-        drawCard2.style.boxShadow = '5px 5px 25px yellow'
+        drawCard2.style.boxShadow = '10px 10px 25px yellow'
         playerTwoDiscard.unshift(drawnCard1,drawnCard2)
         console.log('player 2 wins')
         console.log(playerTwoDeck.length)
