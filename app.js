@@ -30,7 +30,7 @@ const closeModal = () => {
   modal.style.display = 'none'
 }
 
-// Event Listeners
+// // Event Listeners
 // open.addEventListener('click', openModal)
 
 // close.addEventListener('click', closeModal)
